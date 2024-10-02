@@ -5,12 +5,12 @@ This packages aims to provide the step by step processes to install ubuntu 22 an
 - Go to search & type 'Turn windows features on or off' & select the following checkboxes
    
 <div align="center">
-  <img src="media/prereq_1.png" alt="Turn windows features on or off" />
+  <img src="media/Prereq_1.png" alt="Turn windows features on or off" />
 </div>
 
 - Open Task Manager & go to Performance Section. Check if virtualization is enabled or not. If not, then enable it from your bios mode.
 <div align="center">
-  <img src="media/prereq_3.png" alt="Turn windows features on or off" />
+  <img src="media/Prereq_3.png" alt="Turn windows features on or off" />
 </div>
   
 - Open windows powershell as administrator & type the following commands
@@ -27,7 +27,7 @@ lsb_release -a
 - Now you can Open the terminal from your windows 8 select Ubuntu22 to run ubuntu terminal. Also note that, Powershell will be your default terminal application in windows. So to change that, go to settings in Terminal & select default profile as 'Ubuntu22.04'.
 
 <div align="center">
-  <img src="media/prereq_2.png" alt="Turn windows features on or off" />
+  <img src="media/Prereq_2.png" alt="Turn windows features on or off" />
 </div>
 
 - Now your Ubuntu 22.04 terminal is ready.
