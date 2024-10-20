@@ -90,3 +90,49 @@ else
 fi
 unset color_prompt force_color_prompt
 ```
+-----
+# Setting up some utilities for wsl
+These utilities are useful to make the wsl work much more like a real Ubuntu distribution.
+
+## 1. Installing Nautilus package :
+Nautilus is kind of a gui window that allows you to open any specified path/location in a mini file explorer type window. To install it, run the following command   
+```
+sudo aot install nautilus
+```
+To open a specific location with nautilus use the following syntax
+`nautilus <path-to-folder>`.   
+To open current location with nautilus, use
+```
+nautilus .
+```
+It will look something like this
+<div align="center">
+  <img src="media/nautilus.png" alt="Opening current directory with nautilus" />
+</div>
+
+## 2. Installing Gnome-terminal :
+By default the wsl terminals doesn't support gnome features.    
+So in case you use some bash files or python scripts that create multiple gnome tabs, they won't work in default wsl terminals for ubuntu.    
+In that case, you have to explicitly install gnome-terminal & display it on your screen. To do this, use following commands
+```
+sudo apt install gnome-terminal
+export DISPLAY=:0
+gnome-terminal
+```
+It will looke somthing like this (the color will be different, as i have configured it according to my interest)
+<div align="center">
+  <img src="media/gnome-terminal.png" alt="Opening gnome-terminal" />
+</div>    
+
+You can just run `gnome-terminal` command to run the gnome-based terminal.
+
+## *Note* : ##
+The location of `C:\Users\username` in wsl2 is `/mnt/c/Users/username`.
+So if you want to acces this location in wsl2 terminal, you can export this value to an environment variable in your `.bashrc` file.
+```
+export win11='/mnt/c/Users/Mohit'
+```
+So you can just do the following command to navigate to your windows's user directory from your wsl2 terminal
+```
+cd $win11
+``` 
