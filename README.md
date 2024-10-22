@@ -59,6 +59,15 @@ sudo apt install ros-humble-dynamixel-sdk
 echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
 source ~/.bashrc
 ```
+- Sometimes when you run gazebo-classic on wsl it shows following error
+```
+QStandardPaths: wrong permissions on runtime directory /run/user/1000/, 0755 instead of 0700
+```
+To solve this just add the following line in your `.bashrc` file & source it
+```
+chmod 0700 /run/user/1000/
+```
+
 ## 4. Create a ros2 workspace for turtlebot3 :
 ```
 cd
