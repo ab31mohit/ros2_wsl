@@ -97,7 +97,7 @@ These utilities are useful to make the wsl work much more like a real Ubuntu dis
 ## 1. Installing Nautilus package :
 Nautilus is kind of a gui window that allows you to open any specified path/location in a mini file explorer type window. To install it, run the following command   
 ```
-sudo aot install nautilus
+sudo apt install nautilus
 ```
 To open a specific location with nautilus use the following syntax
 `nautilus <path-to-folder>`.   
