@@ -1,5 +1,5 @@
 # ROS2 humble in windows using WSL
-This packages aims to provide the step by step processes to install ubuntu 22 and ROS2 humble on windows using wsl and also run turtlebot3 packages alongside.
+This packages aims to provide the step by step processes to install ubuntu 22 and ROS2 humble on windows using wsl2 and also install other basic utilities that are helpful while using wsl2.
 
 ## 1. Pre-requisites :
 - Go to search & type 'Turn windows features on or off' & select the following checkboxes
@@ -47,43 +47,13 @@ sudo apt install git
 echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc
 ```
 
-## 3. Install Prerequisites for Turtlebot3 :
-```
-sudo apt install gazebo
-sudo apt install ros-humble-gazebo-*
-sudo apt install ros-humble-cartographer
-sudo apt install ros-humble-cartographer-ros
-sudo apt install ros-humble-navigation2
-sudo apt install ros-humble-nav2-bringup
-sudo apt install ros-humble-dynamixel-sdk
-echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
-source ~/.bashrc
-```
-- Sometimes when you run gazebo-classic on wsl it shows following error
-```
-QStandardPaths: wrong permissions on runtime directory /run/user/1000/, 0755 instead of 0700
-```
-To solve this just add the following line in your `.bashrc` file & source it
-```
-chmod 0700 /run/user/1000/
-```
 
-## 4. Create a ros2 workspace for turtlebot3 :
-```
-cd
-mkdir -p turtlebot3_ws/src
-cd ~/turtlebot3_ws
-colcon build
-echo 'source ~/turtlebot3_ws/install/setup.bash' >> ~/.bashrc
-cd ~/turtlebot3_ws/src
-git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
-git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
-git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
-cd ~/turtlebot3_ws
-colcon build
-```
+-----
+# Setting up some utilities for wsl
+These utilities are useful to make the wsl work much more like a real Ubuntu distribution.
 
-*`Note`*: By default linux terminal doesn't show current git branch in it's prompt. To do this, just add the following line in your `.bashrc` file    
+## 1. Showing current git branch :    
+By default the linux terminal doesn't show current git branch in it's prompt. To do this, just add the following line in your `.bashrc` file    
 
 ```
 # Show git branch name
@@ -99,11 +69,13 @@ else
 fi
 unset color_prompt force_color_prompt
 ```
------
-# Setting up some utilities for wsl
-These utilities are useful to make the wsl work much more like a real Ubuntu distribution.
+The output will be something like this 
 
-## 1. Installing Nautilus package :
+<div align="center">
+  <img src="media/git_branch.png" alt="Showing current git branch" />
+</div>
+
+## 2. Installing Nautilus package :
 Nautilus is kind of a gui window that allows you to open any specified path/location in a mini file explorer type window. To install it, run the following command   
 ```
 sudo apt install nautilus
@@ -119,7 +91,7 @@ It will look something like this
   <img src="media/nautilus.png" alt="Opening current directory with nautilus" />
 </div>
 
-## 2. Installing Gnome-terminal :
+## 3. Installing Gnome-terminal :
 By default the wsl terminals doesn't support gnome features.    
 So in case you use some bash files or python scripts that create multiple gnome tabs, they won't work in default wsl terminals for ubuntu.    
 In that case, you have to explicitly install gnome-terminal & display it on your screen. To do this, use following commands
