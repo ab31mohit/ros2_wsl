@@ -107,7 +107,7 @@ It will looke somthing like this (the color will be different, as i have configu
 
 You can just run `gnome-terminal` command to run the gnome-based terminal.
 
-## *Note* : ##
+## *Note* :
 The location of `C:\Users\username` in wsl2 is `/mnt/c/Users/username`.
 So if you want to acces this location in wsl2 terminal, you can export this value to an environment variable in your `.bashrc` file.
 ```
@@ -117,3 +117,24 @@ So you can just do the following command to navigate to your windows's user dire
 ```
 cd $win11
 ``` 
+
+# Removing ubuntu-22.04 & WSL2 completely from windows
+
+- ### check what distros you have in wsl2 & unregister them:
+Open powersheel & type following commands to unregister your installed linux distros
+```
+wsl -l
+wsl --unregister Ubuntu-22.04
+```
+- Search for `Ubuntu-22.04` in windows search & uninstall it.
+- Type following command in powershell to completely remove WSL2 package update
+```
+Get-AppxPackage MicrosoftCorporationII.WindowsSubsystemForLinux | Remove-AppxPackage
+```
+
+- Uninstall WSL2 by running this command in powershell
+```
+wsl --uninstall
+```
+
+- Search for `Turn windows features on or off` & uncheck the options you selected in step 1 of `Pre-requisites`.
